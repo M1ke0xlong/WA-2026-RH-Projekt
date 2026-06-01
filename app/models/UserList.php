@@ -2,7 +2,7 @@
 require_once '../app/models/Database.php';
 
 class UserList {
-    private $db;
+    private $db; 
 
     public function __construct() {
         $database = new Database();

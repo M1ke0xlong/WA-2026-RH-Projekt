@@ -26,7 +26,7 @@
             }
         }
     </script>
-</head>
+</head> 
 <body class="bg-[#fafafa] text-branch font-sans antialiased min-h-screen grid grid-rows-[auto_1fr_auto]">
     
     <header class="bg-white border-b border-sakura-light py-4 px-6 shadow-sm sticky top-0 z-50">

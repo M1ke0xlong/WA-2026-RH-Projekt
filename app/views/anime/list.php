@@ -16,7 +16,7 @@
                 </a>
             <?php endif; ?>
         </form>
-    </div>
+    </div> 
 
     <?php if (empty($animes) && !empty($searchQuery)): ?>
         <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-center text-slate-500 mb-8">

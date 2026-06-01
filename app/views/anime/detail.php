@@ -202,7 +202,7 @@
             <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8 text-center">
                 <p class="text-slate-500">Pro přidání komentáře se musíš <a href="<?= BASE_URL ?>/index.php?url=auth/login" class="text-sakura font-bold hover:underline">přihlásit</a>.</p>
             </div>
-        <?php endif; ?>
+        <?php endif; ?> 
 
             <div class="space-y-4">
                 <?php if (empty($comments)): ?>

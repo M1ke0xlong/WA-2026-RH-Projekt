@@ -19,7 +19,7 @@ class Controller {
         } else {
             die("Šablona " . $view . " neexistuje.");
         }
-    }
+    } 
     protected function setToast($message, $type = 'success') {
         // Uložíme zprávu do session, aby přežila přesměrování (redirect)
         $_SESSION['toast'] = [

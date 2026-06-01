@@ -1,5 +1,5 @@
 <?php
-class AuthController extends Controller {
+class AuthController extends Controller { 
     
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

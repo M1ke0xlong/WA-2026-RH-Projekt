@@ -3,7 +3,7 @@ require_once '../app/models/Database.php';
 
 class User {
     private $db;
-
+ 
     public function __construct() {
         $database = new Database();
         $this->db = $database->getConnection();

@@ -1,5 +1,5 @@
 <?php
-class AdminController extends Controller {
+class AdminController extends Controller { 
     
     // Ochrana před neoprávněným přístupem
     

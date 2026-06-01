@@ -10,7 +10,7 @@
         <div class="text-center mt-6 text-sakura text-opacity-30 text-xl select-none">
             🌸
         </div>
-    </footer>
+    </footer> 
 <?php if (isset($_SESSION['toast'])): ?>
         <?php 
             $toast = $_SESSION['toast']; 

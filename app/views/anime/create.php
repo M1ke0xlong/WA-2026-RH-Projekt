@@ -11,7 +11,7 @@
         <div class="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg mb-6">
             <?= htmlspecialchars($error) ?>
         </div>
-    <?php endif; ?>
+    <?php endif; ?> 
 
     <div class="bg-white p-8 rounded-xl shadow-sm border border-sakura-light">
         <form action="<?= BASE_URL ?>/index.php?url=anime/create" method="POST" enctype="multipart/form-data" class="space-y-6">

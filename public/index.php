@@ -10,4 +10,4 @@ require_once '../core/App.php';
 require_once '../core/Controller.php';
 
 // Inicializace aplikace (Routeru)
-$app = new App();
+$app = new App(); 

@@ -6,7 +6,7 @@
         <h2 class="text-3xl font-bold text-slate-800">Upravit Anime</h2>
         
         <a href="<?= BASE_URL ?>/index.php?url=admin/dashboard" class="text-slate-500 hover:text-sakura transition-colors text-sm font-medium">&larr; Zpět na panel</a>
-    </div>
+    </div> 
 
     <div class="bg-white p-8 rounded-xl shadow-sm border border-sakura-light">
         <form action="<?= BASE_URL ?>/index.php?url=anime/edit/<?= $anime['id'] ?>" method="POST" enctype="multipart/form-data" class="space-y-6">

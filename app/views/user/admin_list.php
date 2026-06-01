@@ -21,7 +21,7 @@
                     <th class="p-4 font-bold">Role</th>
                     <th class="p-4 font-bold text-right">Akce</th>
                 </tr>
-            </thead>
+            </thead> 
             <tbody class="divide-y divide-slate-100">
                 <?php foreach ($users as $u): ?>
                     <tr class="hover:bg-slate-50 transition-colors">

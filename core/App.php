@@ -17,7 +17,7 @@ class App {
                 $this->controller = $potentialController;
                 unset($url[0]);
             }
-        }
+        } 
 
         require_once '../app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
