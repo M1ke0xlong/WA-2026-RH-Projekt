@@ -3,7 +3,7 @@ require_once '../app/models/Database.php';
 
 class User {
     private $db;
- 
+
     public function __construct() {
         $database = new Database();
         $this->db = $database->getConnection();
@@ -11,8 +11,8 @@ class User {
 
     // Registrace nového uživatele
     public function register($username, $email, $password) {
-        // Heslo nikdy neukládáme v čistém textu!
-        $hash = password_hash($password, PASSWORD_DEFAULT);
+        // OPRAVA: Heslo už nám z AuthControlleru přichází bezpečně zašifrované.
+        // Smažeme řádek, který dělal druhou šifru, a použijeme rovnou parametr $password.
         
         $sql = "INSERT INTO users (username, email, password_hash) VALUES (:username, :email, :password_hash)";
         $stmt = $this->db->prepare($sql);
@@ -21,25 +21,37 @@ class User {
             return $stmt->execute([
                 ':username' => $username,
                 ':email' => $email,
-                ':password_hash' => $hash
+                ':password_hash' => $password // <-- Tady posíláme přímo už zašifrované heslo
             ]);
         } catch (PDOException $e) {
-            // Chytne chybu, pokud např. uživatel se stejným jménem už existuje (kvůli UNIQUE v databázi)
+            // Chytne chybu, pokud např. uživatel se stejným jménem už existuje
             return false; 
         }
     }
 
     // Přihlášení uživatele
     public function login($username, $password) {
-        $sql = "SELECT * FROM users WHERE username = :username";
+        // 1. Najdeme uživatele pouze podle jména
+        $sql = "SELECT * FROM users WHERE username = :username LIMIT 1";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([':username' => $username]);
         $user = $stmt->fetch();
 
-        // Pokud uživatel existuje a heslo sedí s hashem v databázi
-        if ($user && password_verify($password, $user['password_hash'])) {
-            return $user;
+        // Pokud uživatel existuje, zkontrolujeme heslo
+        if ($user) {
+            // A) Zkouška pro nová, bezpečně zašifrovaná hesla
+            // OPRAVA: Změněno na $user['password_hash'] podle tvé databáze
+            if (password_verify($password, $user['password_hash'])) {
+                return $user;
+            }
+            
+            // B) Záchrana pro stará hesla v čistém textu (kdyby náhodou)
+            // OPRAVA: Změněno na $user['password_hash']
+            if ($password === $user['password_hash']) {
+                return $user;
+            }
         }
+
         return false;
     }
     // Získá data uživatele podle ID
@@ -82,5 +94,11 @@ class User {
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+    public function getByEmail($email) {
+        $sql = "SELECT * FROM users WHERE email = :email LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':email' => $email]);
+        return $stmt->fetch();
     }
 }

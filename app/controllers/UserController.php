@@ -1,5 +1,5 @@
 <?php
-class UserController extends Controller { 
+class UserController extends Controller {
     
     // Administrátorská správa uživatelů
     public function index() {

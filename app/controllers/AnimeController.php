@@ -1,5 +1,5 @@
 <?php
-class AnimeController extends Controller { 
+class AnimeController extends Controller {
     
     public function index() {
         $animeModel = $this->model('Anime');

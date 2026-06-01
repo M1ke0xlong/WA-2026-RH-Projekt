@@ -8,7 +8,7 @@
         <a href="<?= BASE_URL ?>/index.php?url=user/index" class="px-5 py-2.5 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 font-bold transition-colors">
             👥 Správa Uživatelů
         </a>
-    </div> 
+    </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-sakura-light overflow-hidden">
         <table class="w-full text-left text-sm text-slate-600">

@@ -26,7 +26,7 @@
             }
         }
     </script>
-</head> 
+</head>
 <body class="bg-[#fafafa] text-branch font-sans antialiased min-h-screen grid grid-rows-[auto_1fr_auto]">
     
     <header class="bg-white border-b border-sakura-light py-4 px-6 shadow-sm sticky top-0 z-50">
@@ -52,7 +52,7 @@
 
                         <div class="flex items-center gap-2">
                             <a href="<?= BASE_URL ?>/index.php?url=user/profile" class="text-sm font-bold text-slate-800 hover:text-sakura transition-colors">
-                                <?= htmlspecialchars($_SESSION['user_name'] ?? '') ?>
+                                <?= htmlspecialchars($_SESSION['username'] ?? '') ?>
                             </a>
                             
                             <?php if (($_SESSION['user_role'] ?? '') === 'admin'): ?>

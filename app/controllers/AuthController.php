@@ -1,5 +1,5 @@
 <?php
-class AuthController extends Controller { 
+class AuthController extends Controller {
     
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -52,13 +52,14 @@ class AuthController extends Controller {
             $username = trim($_POST['username'] ?? '');
             $password = $_POST['password'] ?? '';
 
+            // Tady se teprve volá Model a předávají se mu ty 2 parametry
             $user = $userModel->login($username, $password);
             
             if ($user) {
                 // Uložíme data do session
                 $_SESSION['user_id'] = $user['id'];
-                $_SESSION['user_name'] = $user['username'];
-                $_SESSION['user_role'] = $user['role']; // 'user' nebo 'admin'
+                $_SESSION['username'] = $user['username']; // TADY JSME OPRAVILI NÁZEV
+                $_SESSION['user_role'] = $user['role'];
                 
                 header('Location: ' . BASE_URL . '/index.php');
                 exit;

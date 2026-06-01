@@ -22,7 +22,7 @@
                         <?= strtoupper(substr($user['username'], 0, 1)) ?>
                     </div>
                 <?php endif; ?>
-            </div> 
+            </div>
             
             <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                 Role: <?= htmlspecialchars($user['role'] ?? 'user') ?>

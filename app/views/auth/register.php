@@ -9,7 +9,7 @@
             <div class="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg mb-6 text-sm">
                 <?= htmlspecialchars($error) ?>
             </div>
-        <?php endif; ?> 
+        <?php endif; ?>
 
         <form action="<?= BASE_URL ?>/index.php?url=auth/register" method="POST" class="space-y-4">
             
